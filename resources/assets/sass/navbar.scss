@@ -1,0 +1,100 @@
+/* custom nav bar so we set colors */
+
+.navbar-custom {
+  background-color: #126599;
+  color:#ffffff;
+  border-radius:0;
+  padding-right: 25px;
+}
+
+.navbar-custom .navbar-nav > li > a {
+  color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+  color: #ffffff;
+  background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+  text-decoration: none;
+  color: #bbc2c9;
+  background-color: #126599;
+}
+
+.navbar-custom .navbar-brand {
+  color:#eeeeee;
+
+}
+.navbar-custom .navbar-toggle {
+  background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+  background-color:#126599;
+}
+
+/* custom nav bar with shadow */
+
+.navbar-custom-with-shadow {
+  background-color: #126599;
+  color:#ffffff;
+  border-radius:0;
+  padding-right: 25px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.navbar-custom-with-shadow .navbar-nav > li > a {
+  color:#fff;
+}
+
+.navbar-custom-with-shadow .navbar-nav > .active > a {
+  color: #ffffff;
+  background-color:transparent;
+}
+
+.navbar-custom-with-shadow .navbar-nav > li > a:hover,
+.navbar-custom-with-shadow .navbar-nav > li > a:focus,
+.navbar-custom-with-shadow .navbar-nav > .active > a:hover,
+.navbar-custom-with-shadow .navbar-nav > .active > a:focus,
+.navbar-custom-with-shadow .navbar-nav > .open >a {
+  text-decoration: none;
+  color: #bbc2c9;
+  background-color: #126599;
+}
+
+.navbar-custom-with-shadow .navbar-brand {
+  color:#eeeeee;
+
+}
+.navbar-custom-with-shadow .navbar-toggle {
+  background-color:#eeeeee;
+}
+.navbar-custom-with-shadow .icon-bar {
+  background-color:#126599;
+}
+
+.big-logo {
+
+  font-size: 22px;
+
+}
+
+/* circ is for gravatar */
+
+.circ{
+
+
+  width : 40px;
+  vertical-align: middle;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff;
+  margin-top: 5px;
+
+}
+.circ:hover{
+  box-shadow: 0 0 0 3px #f00;
+}

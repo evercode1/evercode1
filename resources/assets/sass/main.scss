@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,600);
+
+body{
+  padding-top: 50px;
+  background-color: #eeeeee;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+@import "navbar";
+
+@import "left-nav";
+
+@import "data-grid";
+
+@import "footer-box";
+
+@import "drop-down";
+
+@import "section";
+
+@import "background";
+
+@import "rounded-corners";
+
+
+
+.mt-25 {
+
+  margin-top: 25px;
+}
+
+.mr-25 {
+
+  margin-right: 25px;
+}
+
+.pt-20 {
+
+  padding-top: 20px;
+}
+
+.pad-20 {
+
+  padding: 20px;
+
+}
+
+
+
+.carousel-inner img {
+  margin: auto;
+}
+

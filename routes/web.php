@@ -11,6 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+// Pages Routes
+
+Route::get('/', 'PagesController@index')->name('pages.index');
+
+
+// Post Routes
+
+Route::get('post/create',  'PostController@create')->name('post.create');
+
+Route::get('post/{post}-{slug?}', 'PostController@show')->name('post.show');
+
+Route::resource('post', 'PostController', ['except' => ['show', 'create']]);
+
+
+// Test Routes
+
+Route::get('test', 'TestController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
