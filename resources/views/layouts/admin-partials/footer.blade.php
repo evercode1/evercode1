@@ -4,7 +4,7 @@
 
             <div class="col-md-4 col-md-offset-2 pt-20">
 
-                <strong>Copyright &copy; 2017 <a href="/">Admin DASH</a>.</strong> All rights
+                <strong>&copy; 2017 <a href="/">Bill Keck</a>.</strong> All rights
                 reserved.
 
             </div>

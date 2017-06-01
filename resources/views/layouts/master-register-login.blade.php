@@ -18,24 +18,11 @@
 
     @include('layouts.master-partials.top-nav')
 
-    <div class="container">
-
-        @yield('blog-header')
-
-        <div class="row">
-
-    @yield('content')
-
-            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-                @include('layouts.blog-partials.sidebars')
 
 
-            </div><!-- /.blog-sidebar -->
+        @yield('content')
 
-        </div><!-- /.row -->
 
-    </div><!-- /.container -->
 
     @include('layouts.master-partials.footer')
 

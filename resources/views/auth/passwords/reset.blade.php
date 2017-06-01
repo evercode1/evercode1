@@ -1,4 +1,4 @@
-@extends('layouts.master-guest-auth')
+@extends('layouts.master-register-login')
 
 @section('content')
 <div class="container">
