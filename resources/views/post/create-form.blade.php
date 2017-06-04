@@ -28,6 +28,62 @@
 
     <!-- end post title input -->
 
+    <!-- category select -->
+
+    <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+
+        <label class="control-label">Category</label>
+
+        <select class="form-control" id="category_id" name="category_id">
+
+            <option value="">Please Choose One</option>
+
+            @foreach($categories as $category)
+
+            <option value={{ $category->id }}>{{ $category->name }}</option>
+
+            @endforeach
+
+        </select>
+
+        @if ($errors->has('category_id'))
+
+            <span class="help-block">
+
+                <strong>{{ $errors->first('category_id') }}</strong>
+
+            </span>
+
+        @endif
+
+    </div> <!-- end category select -->
+
+
+    <!-- is_published select -->
+
+    <div class="form-group{{ $errors->has('is_published') ? ' has-error' : '' }}">
+
+        <label class="control-label">Status</label>
+
+        <select class="form-control" id="is_published" name="is_published">
+
+            <option value="1">Publish</option>
+            <option value="0">Save As Draft</option>
+
+        </select>
+
+        @if ($errors->has('is_published'))
+
+            <span class="help-block">
+
+                <strong>{{ $errors->first('is_published') }}</strong>
+
+            </span>
+
+        @endif
+
+    </div> <!-- end is_published select -->
+
 
     <!-- post body input -->
 

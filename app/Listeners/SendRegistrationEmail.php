@@ -29,6 +29,7 @@ class SendRegistrationEmail
 
     public function handle(RegistrationCompleted $event)
     {
+
         Mail::to($event->user)->send(new RegistrationEmail($event->user));
     }
 }

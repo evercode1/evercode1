@@ -14,21 +14,19 @@
 
 <body>
 
-<div id="app">
+       <div id="app"> <!-- app div for vue -->
 
-    @include('layouts.master-partials.top-nav')
-
-
+        @include('layouts.master-partials.top-nav')
 
         @yield('content')
 
+        @include('layouts.master-partials.footer')
+
+        </div> <!-- end app div for vue -->
+
+        @include('layouts.master-partials.scripts')
 
 
-    @include('layouts.master-partials.footer')
-
-    @include('layouts.master-partials.scripts')
-
-</div>
 
 </body>
 </html>

@@ -1,15 +1,13 @@
 <footer class="footer-box">
+
     <div class="container">
         <div class="row">
 
             <div class="col-md-4 pt-20">
 
-                <strong>&copy; 2017 <a href="/">Bill Keck</a>.</strong> All rights
-                reserved.
+                {!!  $copyright !!}
 
-            </div>
-
-
+            </div>  <!-- end column copyright -->
 
             <div class="col-md-4 col-md-offset-2 pt-20">
 
@@ -17,11 +15,10 @@
                     <a href="/privacy">Site Privacy Policy</a> | <a href="/terms">Terms of Use</a> | <a href="/contact">Contact Us</a>
                 </div>
 
-            </div>
+            </div>  <!-- end column -->
 
+        </div>  <!-- end row -->
 
-        </div>
+    </div>  <!-- end container -->
 
-    </div>
-    <!-- /.container -->
 </footer>

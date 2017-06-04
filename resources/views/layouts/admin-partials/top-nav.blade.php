@@ -10,25 +10,49 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
+
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Username <span class="caret"></span></a>
                 <ul class="dropdown-menu" style="background-color:white;">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Subdivision</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    @if(Auth::user()->isAdmin())
+                        <li><a href="/admin">Admin</a></li>
+                        <li><a href="/user">Users</a></li>
+                        <li><a href="/post">Posts</a></li>
+                    @endif
+
+                        <li><a href="/settings">Settings</a></li>
+                        <li>
+                            <a href="/auth/facebook">
+                                fb Sync </a>
+                        </li>
+                        <li><a href="/auth/github">
+
+                                Github Sync </a>
+                        </li>
+
+                        <li>
+                            <a href="/logout"
+                               onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                 </ul>
             </li>
+            <li><img class="circ" src="{{ Gravatar::get(Auth::user()->email)  }}"></li>
         </ul>
+        <search-posts inline-template>
+
         <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
         </form>
+
+        </search-posts>
     </div>
 
 

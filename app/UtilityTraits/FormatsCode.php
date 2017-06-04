@@ -6,18 +6,103 @@ use Illuminate\Http\Request;
 
 trait FormatsCode
 {
-
-
     /**
      * @param Request $request
      * @return Request|mixed|string
      */
-    private function formatPostBody(Request $request)
+
+    private function formatPostBody($body)
     {
-        $request = html_entity_decode($request->body);
+        $body = $this->decodeEntities($body);
 
-        $request = str_replace('&#39;', '\'', $request);
+        list($code, $endCode) = $this->formatReplacementTags();
 
+        $body = $this->replaceCKEditorCodeTags($code, $body);
+
+        $body = $this->addEndingDivs($endCode, $body);
+
+        return $body;
+
+    }
+
+    public function formatsEditedCode($body)
+    {
+
+        // decode html entities
+
+        $body = $this->decodeEntities($body);
+
+        // create the strings to replace in body
+
+        list($code, $endCode, $pad) = $this->formatsEditedTags();
+
+        // set placeholder
+
+        $placeholder = '<placeholder>';
+
+        // fixes new code, same as in formatPostBody
+
+        $body = $this->replaceCKEditorCodeTags($code, $body);
+
+        // fixes old code, adds the pad above the pre prettyprint class
+        // because CK editor for some reason strips it out in edit form
+
+        $body = str_replace('<pre class="prettyprint">', $pad, $body);
+
+        // strips out all </pre> tags and replaces with placeholder
+        // because we need to make sure we have the ending div after all of them
+
+        $body = str_replace('</pre>', $placeholder, $body);
+
+        // adds the ending div below all closing </pre> tags
+
+        $body = str_replace('<placeholder>', $endCode, $body);
+
+
+        return $body;
+
+
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed|string
+     */
+
+    private function decodeEntities($body)
+    {
+        $body = html_entity_decode($body);
+
+        $body = str_replace('&#39;', '\'', $body);
+
+        return $body;
+    }
+
+    /**
+     * @param $code
+     * @param $body
+     * @return mixed
+     */
+
+    private function replaceCKEditorCodeTags($code, $body)
+    {
+        $body = str_replace('<pre class="html " data-pbcklang="html" data-pbcktabsize="4">', $code, $body);
+
+        $body = str_replace('<pre class="php " data-pbcklang="php" data-pbcktabsize="4">', $code, $body);
+
+        $body = str_replace('<pre class="css " data-pbcklang="css" data-pbcktabsize="4">', $code, $body);
+
+        $body = str_replace('<pre class="javascript " data-pbcklang="javascript" data-pbcktabsize="4">', $code, $body);
+
+        return $body;
+    }
+
+    /**
+     * @return array
+     */
+
+    private function formatReplacementTags()
+    {
         $code = <<<EOT
 <div class="pad-20">
  
@@ -31,23 +116,48 @@ EOT;
 
 </div>
 EOT;
+        return [$code,$endCode];
+
+}
+
+    private function formatsEditedTags()
+    {
+        $code = <<<EOT
+ 
+<pre class="prettyprint">
+
+EOT;
+
+        $endCode = <<<EOT
+        
+</pre>
+
+</div>
 
 
+EOT;
 
-        $request = str_replace('<pre class="html " data-pbcklang="html" data-pbcktabsize="4">', $code, $request);
+        $pad = <<<EOT
+        
+<div class="pad-20">
+ 
+<pre class="prettyprint">
 
-        $request = str_replace('<pre class="php " data-pbcklang="php" data-pbcktabsize="4">', $code, $request);
+EOT;
 
-        $request = str_replace('<pre class="css " data-pbcklang="css" data-pbcktabsize="4">', $code, $request);
+        return [$code, $endCode, $pad];
 
-        $request = str_replace('<pre class="javascript " data-pbcklang="javascript" data-pbcktabsize="4">', $code, $request);
-
-        $request = str_replace('</pre>', $endCode, $request);
-
-        return $request;
     }
 
+    /**
+     * @param $endCode
+     * @param $body
+     * @return mixed
+     */
 
-
+    private function addEndingDivs($endCode, $body)
+    {
+        return str_replace('</pre>', $endCode, $body);
+    }
 
 }

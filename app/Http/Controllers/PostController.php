@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use App\UtilityTraits\FormatsCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 use App\Post;
 use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
     use FormatsCode;
+
+    public function __construct()
+    {
+
+
+        $this->middleware(['auth', 'admin']);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +27,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('post.index');
     }
 
     /**
@@ -28,7 +37,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $categories = Category::all();
+
+        return view('post.create', compact('categories'));
     }
 
     /**
@@ -41,18 +52,46 @@ class PostController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required|string|max:40',
+            'title' => 'required|string|unique:posts|max:100',
             'body' => 'required|string|max:4000',
+            'category_id' => 'required|isValidCategory',
+            'is_published' => 'required|boolean'
+
         ]);
 
-        $body = $this->formatPostBody($request);
+
+
+
+        $body = $this->formatPostBody($request->body);
 
         $slug = str_slug($request->title, "-");
 
-        $post = Post::create(['title' => $request->title,
-                              'body' => $body,
-                              'slug' => $slug,
-                              'user_id' => 1]);
+        if ($request->is_published) {
+
+            $post = Post::create(['title' => $request->title,
+                                  'category_id' => $request->category_id,
+                                  'is_published' => $request->is_published,
+                                  'body' => $body,
+                                  'slug' => $slug,
+                                  'user_id' => Auth::id(),
+                                  'published_at' => date('Y-m-d H:i:s')
+            ]);
+
+
+        } else {
+
+            $post = Post::create(['title' => $request->title,
+                                  'category_id' => $request->category_id,
+                                  'is_published' => $request->is_published,
+                                  'body' => $body,
+                                  'slug' => $slug,
+                                  'user_id' => Auth::id()
+            ]);
+
+
+        }
+
+
 
         $post->save();
 
@@ -74,7 +113,9 @@ class PostController extends Controller
                                                    'slug' => $post->slug], 301);
         }
 
-        return view('post.show', compact('post'));
+        $categories = Category::all();
+
+        return view('post.show', compact('post', 'categories'));
 
     }
 
@@ -84,9 +125,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+
+        $categoryId = $post->category_id;
+
+        $categoryName = Category::where('id', $categoryId)->first();
+
+        $categoryName = ($categoryName['name']);
+
+        $categories = Category::all();
+
+        return view('post.edit', compact('post', 'postBody', 'categories', 'categoryId', 'categoryName'));
     }
 
     /**
@@ -96,9 +146,47 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:100|unique:posts,title,' .$post->id,
+            'body' => 'required|string|max:4000',
+            'category_id' => 'required|isValidCategory',
+            'is_published' => 'required|boolean'
+
+        ]);
+
+        $body = $this->formatsEditedCode($request->body);
+
+        $slug = str_slug($request->title, "-");
+
+        if ($request->is_published) {
+
+            $post->update(['title' => $request->title,
+                                  'category_id' => $request->category_id,
+                                  'is_published' => $request->is_published,
+                                  'body' => $body,
+                                  'slug' => $slug,
+                                  'user_id' => Auth::id(),
+                                  'published_at' => date('Y-m-d H:i:s')
+            ]);
+
+
+        } else {
+
+            $post->update(['title' => $request->title,
+                                  'category_id' => $request->category_id,
+                                  'is_published' => $request->is_published,
+                                  'body' => $body,
+                                  'slug' => $slug,
+                                  'user_id' => Auth::id()
+            ]);
+
+
+        }
+
+
+        return Redirect::route('post.index');
     }
 
     /**
@@ -109,7 +197,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Post::destroy($id);
+
+
+        return Redirect::route('post.index');
+
     }
 
 

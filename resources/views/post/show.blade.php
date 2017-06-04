@@ -1,55 +1,35 @@
-@extends('layouts.master')
+@extends('layouts.master-guest-auth')
 
 @section('content')
+
+
+    <div class="col-sm-8 blog-main">
+
 
     <div class="container">
 
 
+        <div class="col-md-8 mt-25">
 
+            <div class="blog-post">
 
-        <div class="col-md-8 col-md-offset-2">
+                <h2 class="blog-post-title">{{ $post->title }}</h2>
 
-            <div class="blog-header">
-                <h1 class="blog-title">The Keywordings Blog</h1>
-                <p class="lead blog-description">The official example Bill Keck blog for code and entreprenuership.</p>
-            </div>
+                <p class="blog-post-meta">{{ $post->published_at }} by <a href="#">{{ $post->user->name }}</a></p>
 
-            <article class="white-background rounded-corners-10 pad-20">
+                {!! $post->body !!}
 
-            <h2>
-                <a href="#">{{ $post->title }}</a>
-            </h2>
-            <p class="lead">
-                by <a href="/">Bill Keck</a>
-            </p>
-            <p><span class="glyphicon glyphicon-time"></span> {{ $post->created_at->diffForHumans() }}</p>
-            <hr>
+                @include('layouts.blog-partials.signature')
 
-
-
-            <section>
-
-
-                <div class="pad-20">
-
-
-
-                    {!! $post->body !!}
-
-
-
-                </div>
-
-
-            </section>
-
-            </article>  <!-- end article -->
+            </div><!-- end blog-post -->
 
         </div> <!-- end column -->
 
+    </div><!--  end blog-main -->
 
 
-        </div> <!-- end container -->
+
+    </div> <!-- end container -->
 
 
 

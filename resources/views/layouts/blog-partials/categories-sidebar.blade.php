@@ -1,8 +1,11 @@
 <div class="sidebar-module">
     <h4>Categories</h4>
     <ol class="list-unstyled">
-        <li><a href="#">PHP</a></li>
-        <li><a href="#">Laravel</a></li>
-        <li><a href="#">Javascript</a></li>
+
+        @foreach($categories as $category)
+        <li><a href="#">{{ $category->name }}</a></li>
+
+
+            @endforeach
     </ol>
 </div>

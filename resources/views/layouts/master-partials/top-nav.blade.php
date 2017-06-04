@@ -26,15 +26,20 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
 
-                        <li><a href="/determine-profile-route">Profile</a></li>
+                        @if(Auth::user()->isAdmin())
+                            <li><a href="/admin">Admin</a></li>
+                            <li><a href="/user">Users</a></li>
+                            <li><a href="/post">Posts</a></li>
+                        @endif
+
                         <li><a href="/settings">Settings</a></li>
                         <li>
                             <a href="/auth/facebook">
-                                <i class="fa fa-facebook"></i>&nbsp;&nbsp; Sync </a>
+                                fb Sync </a>
                         </li>
                         <li><a href="/auth/github">
-                                <i class="fa fa-github"></i>
-                                &nbsp;&nbsp; Github Sync </a>
+
+                                Github Sync </a>
                         </li>
 
                         <li>
@@ -48,8 +53,10 @@
                                 {{ csrf_field() }}
                             </form>
                         </li>
+
                     </ul>
                 </li>
+                <li><img class="circ" src="{{ Gravatar::get(Auth::user()->email)  }}"></li>
 
 
             @endif

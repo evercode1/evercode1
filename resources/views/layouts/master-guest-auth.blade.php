@@ -14,6 +14,8 @@
 
 <body>
 
+
+
 <div id="app">
 
     @include('layouts.master-partials.top-nav')
@@ -26,22 +28,24 @@
 
     @yield('content')
 
-            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar mt-25">
 
                 @include('layouts.blog-partials.sidebars')
 
 
-            </div><!-- /.blog-sidebar -->
+            </div><!-- end blog-sidebar -->
 
-        </div><!-- /.row -->
+        </div><!-- end row -->
 
-    </div><!-- /.container -->
+    </div><!--  end container -->
 
     @include('layouts.master-partials.footer')
 
+</div> <!-- end app for vue -->
+
     @include('layouts.master-partials.scripts')
 
-</div>
+
 
 </body>
 </html>

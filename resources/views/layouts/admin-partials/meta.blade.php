@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="../../favicon.ico">
 
+    @yield('title')
+
     @yield('meta')
 
     <title>Dashboard Template for Bootstrap</title>

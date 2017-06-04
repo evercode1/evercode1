@@ -8,15 +8,15 @@
 
 <body role="document">
 
-@include('layouts.admin-partials.top-nav')
-
 <div id="app">
+
+    @include('layouts.admin-partials.top-nav')
 
     @include('layouts.admin-partials.left-nav')
 
     @include('layouts.admin-partials.footer')
 
-</div>
+</div> <!-- end app div for vue -->
 
 @include('layouts.admin-partials.scripts')
 
