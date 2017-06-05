@@ -102,6 +102,13 @@ class Post extends Model
 
     }
 
+    public function showMonth($date)
+    {
+
+        return Carbon::parse($date)->format('F') . ' - ' . Carbon::parse($date)->format('Y');
+
+    }
+
     public function user()
     {
 
