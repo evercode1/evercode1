@@ -17,6 +17,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 // Api routes
 
+Route::get('api/archives', 'ApiController@archives');
 Route::get('api/category-data', 'ApiController@categoryData');
 Route::get('api/category-list', 'ApiController@categoryList');
 Route::get('api/post-data', 'ApiController@postData');
@@ -50,6 +51,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 // Post Routes
 
 Route::get('post-by-category/{id}', 'PostsByCategoryController@index')->name('post.by-category');
+
+Route::get('post-by-date/{date}', 'PostsByDateController@index')->name('post.by-date');
 
 Route::post('post-delete/{post}', 'PostController@destroy');
 

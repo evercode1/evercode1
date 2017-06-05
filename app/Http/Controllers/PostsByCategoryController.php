@@ -15,7 +15,7 @@ class PostsByCategoryController extends Controller
 
         $posts = Post::live()->byCategory($id)->simplePaginate(1);;
 
-        return view('post-by-category.index', compact('posts', 'category'));
+        return view('posts-by-category.index', compact('posts', 'category'));
 
     }
 }

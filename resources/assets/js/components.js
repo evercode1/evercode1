@@ -1,3 +1,4 @@
+Vue.component('archives', require('./components/Archives.vue'));
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('category-grid', require('./components/CategoryGrid.vue'));
 Vue.component('category-list', require('./components/CategoryList.vue'));
