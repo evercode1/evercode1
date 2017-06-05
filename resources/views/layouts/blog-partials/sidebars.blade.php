@@ -1,9 +1,5 @@
-@include('layouts.blog-partials.about-sidebar')
-
-@include('layouts.blog-partials.categories-sidebar')
-
-@include('layouts.blog-partials.archives-sidebar')
-
-@include('layouts.blog-partials.books-sidebar')
-
-@include('layouts.blog-partials.resources-sidebar')
+<about></about>
+<category-list></category-list>
+<archives></archives>
+<book-list></book-list>
+<blog-resources-list></blog-resources-list>

@@ -18,6 +18,9 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 // Api routes
 
 Route::get('api/archives', 'ApiController@archives');
+Route::get('api/featured-book', 'ApiController@featuredBook');
+Route::get('api/blog-resource-data', 'ApiController@blogResourceData');
+Route::get('api/book-data', 'ApiController@bookData');
 Route::get('api/category-data', 'ApiController@categoryData');
 Route::get('api/category-list', 'ApiController@categoryList');
 Route::get('api/post-data', 'ApiController@postData');
@@ -29,6 +32,10 @@ Route::get('api/user-data', 'ApiController@userData');
 Route::get('login', 'Auth\AuthController@showLoginForm')->name('login');
 Route::post('login', 'Auth\AuthController@login');
 Route::post('logout', 'Auth\AuthController@logout')->name('logout');
+
+// Book Routes
+
+Route::resource('book', 'BookController');
 
 // Category Routes
 
@@ -67,6 +74,10 @@ Route::resource('post', 'PostController', ['except' => ['show', 'create']]);
 
 Route::get('register', 'Auth\AuthController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\AuthController@register');
+
+// Resource Routes
+
+Route::resource('/blogresource', 'BlogResourceController');
 
 // Settings routes
 

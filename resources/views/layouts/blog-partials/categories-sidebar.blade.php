@@ -1,1 +1,0 @@
-<category-list></category-list>

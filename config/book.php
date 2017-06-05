@@ -12,7 +12,8 @@ return [
     |
     */
     'promo-book' => [
-        'book'     => '<a href="https://leanpub.com/laravel-5-4-for-beginners" target="_blank">Laravel 5.4 For Beginners</a>',
+        'title'     => 'Laravel 5.4 For Beginners',
+        'url'       => 'https://leanpub.com/laravel-5-4-for-beginners'
 
     ],
 ];

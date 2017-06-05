@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Queries\ArchivesQuery;
 use Illuminate\Http\Request;
 use App\Queries\GridQueries\GridQuery;
 use App\Queries\GridQueries\UserQuery;
 use App\Queries\GridQueries\CategoryQuery;
 use App\Queries\GridQueries\PostQuery;
+use App\Queries\CategoryListQuery;
+use App\Queries\GridQueries\BookQuery;
+use App\Queries\GridQueries\BlogResourceQuery;
 use App\Category;
 use App\Post;
 use Carbon\Carbon;
@@ -17,22 +21,25 @@ class ApiController extends Controller
 
     public function archives()
     {
-        $archives = DB::table('posts')->select(DB::raw('Year(published_at) as year'),
-            DB::raw('month(posts.published_at) as month'),
-            DB::raw("count(posts.id) as `count`"))
-            ->where('is_published', 1)
-            ->groupBy('year', 'month')
-            ->orderBy('published_at', 'desc')
-            ->get();
 
+        return ArchivesQuery::sendData();
 
-        return json_encode($archives);
+    }
 
+    public function blogResourceData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new BlogResourceQuery);
 
 
     }
 
+    public function bookData(Request $request)
+    {
 
+        return GridQuery::sendData($request, new BookQuery);
+
+    }
 
 
     public function categoryData(Request $request)
@@ -42,14 +49,20 @@ class ApiController extends Controller
 
     }
 
-    public function categoryList(Request $request)
+    public function categoryList()
     {
 
-        $categories = Category::with(['posts' => function ($query) {
-            $query->where('is_published', '=', 1);
-        }])->get();
+        return CategoryListQuery::sendData();
 
-        return json_encode($categories);
+    }
+
+    public function featuredBook()
+    {
+
+        $book = config('book.promo-book');
+
+        return json_encode($book);
+
 
     }
 
