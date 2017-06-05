@@ -10,11 +10,11 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
 
-        $posts = Post::latest()->where('is_published', 1)->simplePaginate(4);
 
-        return view('pages.index', compact('posts', 'categories'));
+        $posts = Post::latest()->where('is_published', 1)->simplePaginate(3);
+
+        return view('pages.index', compact('posts'));
 
     }
 }

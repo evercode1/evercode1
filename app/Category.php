@@ -9,10 +9,23 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    public function post()
+    /**
+     * @param $categoryId
+     * @return mixed
+     */
+    public static function getCategoryName($categoryId)
+    {
+        $categoryName = static::where('id', $categoryId)->first();
+
+        $categoryName = ($categoryName['name']);
+
+        return $categoryName;
+    }
+
+    public function posts()
     {
 
-        return $this->belongsTo('App\Post');
+        return $this->hasMany('App\Post');
 
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\UnauthorizedException;
 use App\UtilityTraits\FormatsCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class PostController extends Controller
     {
 
 
-        $this->middleware(['auth', 'admin']);
+        $this->middleware(['auth', 'admin'], ['except' => 'show']);
 
     }
     /**
@@ -60,40 +61,17 @@ class PostController extends Controller
         ]);
 
 
-
-
         $body = $this->formatPostBody($request->body);
 
         $slug = str_slug($request->title, "-");
 
-        if ($request->is_published) {
+        $request->is_published ?
 
-            $post = Post::create(['title' => $request->title,
-                                  'category_id' => $request->category_id,
-                                  'is_published' => $request->is_published,
-                                  'body' => $body,
-                                  'slug' => $slug,
-                                  'user_id' => Auth::id(),
-                                  'published_at' => date('Y-m-d H:i:s')
-            ]);
+            Post::createPost($request, $body, $slug)
 
+            :
 
-        } else {
-
-            $post = Post::create(['title' => $request->title,
-                                  'category_id' => $request->category_id,
-                                  'is_published' => $request->is_published,
-                                  'body' => $body,
-                                  'slug' => $slug,
-                                  'user_id' => Auth::id()
-            ]);
-
-
-        }
-
-
-
-        $post->save();
+            Post::createDraft($request, $body, $slug);
 
 
         return Redirect::route('post.index');
@@ -113,9 +91,23 @@ class PostController extends Controller
                                                    'slug' => $post->slug], 301);
         }
 
-        $categories = Category::all();
 
-        return view('post.show', compact('post', 'categories'));
+
+        if (! $post->is_published){
+
+
+            if (Auth::user()->isAdmin()){
+
+
+                return view('post.show', compact('post'));
+
+            }
+
+            throw new UnauthorizedException();
+
+        }
+
+        return view('post.show', compact('post'));
 
     }
 
@@ -130,13 +122,15 @@ class PostController extends Controller
 
         $categoryId = $post->category_id;
 
-        $categoryName = Category::where('id', $categoryId)->first();
-
-        $categoryName = ($categoryName['name']);
+        $categoryName = Category::getCategoryName($post->category_id);
 
         $categories = Category::all();
 
-        return view('post.edit', compact('post', 'postBody', 'categories', 'categoryId', 'categoryName'));
+        return view('post.edit', compact('post',
+                                         'postBody',
+                                         'categories',
+                                         'categoryId',
+                                         'categoryName'));
     }
 
     /**
@@ -160,33 +154,16 @@ class PostController extends Controller
 
         $slug = str_slug($request->title, "-");
 
-        if ($request->is_published) {
+        $request->is_published ?
 
-            $post->update(['title' => $request->title,
-                                  'category_id' => $request->category_id,
-                                  'is_published' => $request->is_published,
-                                  'body' => $body,
-                                  'slug' => $slug,
-                                  'user_id' => Auth::id(),
-                                  'published_at' => date('Y-m-d H:i:s')
-            ]);
+            Post::updatePost($request, $body, $slug, $post)
 
+            :
 
-        } else {
-
-            $post->update(['title' => $request->title,
-                                  'category_id' => $request->category_id,
-                                  'is_published' => $request->is_published,
-                                  'body' => $body,
-                                  'slug' => $slug,
-                                  'user_id' => Auth::id()
-            ]);
-
-
-        }
-
+            Post::updateDraft($request, $body, $slug, $post);
 
         return Redirect::route('post.index');
+
     }
 
     /**
@@ -204,6 +181,8 @@ class PostController extends Controller
         return Redirect::route('post.index');
 
     }
+
+
 
 
 }

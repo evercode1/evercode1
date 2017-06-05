@@ -2,11 +2,15 @@
 
 namespace App;
 
+use App\UtilityTraits\PostScopes;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
+    use PostScopes;
 
     /**
      * The attributes that should be mutated to dates.
@@ -29,6 +33,68 @@ class Post extends Model
                            'published_at'
     ];
 
+    public static function createPost(Request $request, $body, $slug)
+    {
+
+        $post = static::create(['title' => $request->title,
+                                'category_id' => $request->category_id,
+                                'is_published' => $request->is_published,
+                                'body' => $body,
+                                'slug' => $slug,
+                                'user_id' => Auth::id(),
+                                'published_at' => date('Y-m-d H:i:s')
+        ]);
+
+        $post->save();
+
+
+    }
+
+    public static function createDraft(Request $request, $body, $slug)
+    {
+        $post = static::create(['title' => $request->title,
+                                'category_id' => $request->category_id,
+                                'is_published' => $request->is_published,
+                                'body' => $body,
+                                'slug' => $slug,
+                                'user_id' => Auth::id()
+        ]);
+
+
+        $post->save();
+
+    }
+
+    public static function updatePost(Request $request, $body, $slug, Post $post)
+    {
+
+        $post->update(['title' => $request->title,
+                       'category_id' => $request->category_id,
+                       'is_published' => $request->is_published,
+                       'body' => $body,
+                       'slug' => $slug,
+                       'user_id' => Auth::id(),
+                       'published_at' => date('Y-m-d H:i:s')
+        ]);
+
+    }
+
+    public static function updateDraft(Request $request, $body, $slug, Post $post)
+    {
+
+        $post->update(['title' => $request->title,
+                       'category_id' => $request->category_id,
+                       'is_published' => $request->is_published,
+                       'body' => $body,
+                       'slug' => $slug,
+                       'user_id' => Auth::id()
+        ]);
+
+
+    }
+
+
+
     public function getPublishedAtAttribute($value)
     {
 
@@ -47,8 +113,10 @@ class Post extends Model
     public function category()
     {
 
-        return $this->hasOne('App\Category');
+        return $this->belongsTo('App\Category');
 
     }
+
+
 
 }

@@ -4,15 +4,17 @@
         <a href="/user"><p>Use this link to manage your applications's users</p></a>
         <p><a class="btn btn-default" href="/user" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
+
+    <div class="col-xs-6 col-lg-4">
+        <a href="/post"><h2>Posts</h2></a>
+        <p> <a href="/post">Use this link to manage your posts </a></p>
+        <p><a class="btn btn-default" href="/post" role="button">View details &raquo;</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->
+
     <div class="col-xs-6 col-lg-4">
         <a href="/category"><h2>Categories</h2></a>
         <a href="/category"><p>Use this link to manage your applications's categories</p></a>
         <p><a class="btn btn-default" href="/profile" role="button">View details &raquo;</a></p>
-    </div><!--/.col-xs-6.col-lg-4-->
-    <div class="col-xs-6 col-lg-4">
-        <a href="/marketing-image"><h2>Marketing Images</h2></a>
-        <p> <a href="/marketing-image">Use this link to manage your marketing images </a></p>
-        <p><a class="btn btn-default" href="/marketing-image" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
 
     </div>

@@ -10,9 +10,8 @@
 
 
 
-    <div class="col-md-6 col-md-offset-4">
+    <div class="col-md-6 col-md-offset-4 mt-25">
 
-        <h1>Admin</h1>
 
     @include('admin.grid')
 
