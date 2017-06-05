@@ -19,7 +19,11 @@
 
                 @foreach($posts as $post)
 
+                    <div class="by-query-heading">
+
                     {{ $post->showMonth($post->published_at) }} - Posts
+
+                    </div>
 
                     <div class="blog-post">
 
