@@ -1,19 +1,31 @@
 <div class="row">
+
+    <total-users></total-users>
+
+    <total-posts></total-posts>
+
+    <total-books></total-books>
+
+    <total-resources></total-resources>
+
+</div>
+
+<div class="row">
     <div class="col-xs-6 col-lg-4">
-        <a href="/user"><h2>Users</h2></a>
-        <a href="/user"><p>Use this link to manage your applications's users</p></a>
+        <h2>Users</h2>
+        <p>Use this link to manage your applications's users</p>
         <p><a class="btn btn-default" href="/user" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
 
     <div class="col-xs-6 col-lg-4">
-        <a href="/post"><h2>Posts</h2></a>
-        <p> <a href="/post">Use this link to manage your posts </a></p>
+        <h2>Posts</h2>
+        <p>Use this link to manage your posts</p>
         <p><a class="btn btn-default" href="/post" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
 
     <div class="col-xs-6 col-lg-4">
-        <a href="/category"><h2>Categories</h2></a>
-        <a href="/category"><p>Use this link to manage your applications's categories</p></a>
+        <h2>Categories</h2>
+        <p>Use this link to manage your applications's categories</p>
         <p><a class="btn btn-default" href="/profile" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
 

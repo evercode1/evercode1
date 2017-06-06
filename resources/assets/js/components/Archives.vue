@@ -16,13 +16,14 @@
 
     export default {
 
-        mounted: function () {
+        mounted() {
 
             this.loadData();
 
         },
 
-        data: function () {
+        data() {
+
             return {
 
                 archives: [],

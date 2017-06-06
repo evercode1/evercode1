@@ -17,8 +17,7 @@
                 <ul class="dropdown-menu" style="background-color:white;">
                     @if(Auth::user()->isAdmin())
                         <li><a href="/admin">Admin</a></li>
-                        <li><a href="/user">Users</a></li>
-                        <li><a href="/post">Posts</a></li>
+
                     @endif
 
                         <li><a href="/settings">Settings</a></li>

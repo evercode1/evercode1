@@ -1,5 +1,6 @@
 @extends('layouts.master-guest-auth')
 
+
 @section('blog-header')
 
     @include('layouts.blog-partials.blog-header')
@@ -50,5 +51,6 @@
 @section('scripts')
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="/js/format_brackets.js"></script>
 
 @endsection

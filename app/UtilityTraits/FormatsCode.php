@@ -13,7 +13,7 @@ trait FormatsCode
 
     private function formatPostBody($body)
     {
-        $body = $this->decodeEntities($body);
+       // $body = $this->decodeEntities($body);
 
         list($code, $endCode) = $this->formatReplacementTags();
 
@@ -30,7 +30,7 @@ trait FormatsCode
 
         // decode html entities
 
-        $body = $this->decodeEntities($body);
+        // $body = $this->decodeEntities($body);
 
         // create the strings to replace in body
 
@@ -86,6 +86,9 @@ trait FormatsCode
 
     private function replaceCKEditorCodeTags($code, $body)
     {
+
+        $body = str_replace('<pre data-pbcklang="" data-pbcktabsize="">', $code, $body);
+
         $body = str_replace('<pre class="html " data-pbcklang="html" data-pbcktabsize="4">', $code, $body);
 
         $body = str_replace('<pre class="php " data-pbcklang="php" data-pbcktabsize="4">', $code, $body);

@@ -3,36 +3,30 @@
         <div class="col-sm-2 col-md-2 left-nav-box">
             <ul class="left-nav-first-list-group">
                 <li>Overview <span class="sr-only">(current)</span></li>
-                <li><a href="#"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; Reports</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Analytics</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Export</a></li>
+                <li><a href="/admin"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; Dashboard</a></li>
             </ul>
             <ul class="left-nav-list-group">
-                <li>Heading</li>
-                <li><a href=""><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Nav item again</a></li>
-                <li><a href=""><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;One more nav</a></li>
-                <li><a href=""><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Another nav item</a></li>
-                <li><a href=""><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;More navigation</a></li>
+                <li>Posts</li>
+                <li><a href="/post"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Posts</a></li>
+                <li><a href="/post/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
             </ul>
             <ul class="left-nav-list-group">
-                <li>Heading</li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-
-                        <li class="dropdown-header"><span style="color:black;">Related</span></li>
-
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-                <li><a href=""><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;One more nav</a></li>
-                <li><a href=""><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Another nav item</a></li>
+                <li>Categories</li>
+                <li><a href="/category"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Categories</a></li>
+                <li><a href="/category/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
             </ul>
+            <ul class="left-nav-list-group">
+                <li>Users</li>
+                <li><a href="/user"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Users</a></li>
+            </ul>
+            <ul class="left-nav-list-group">
+                <li>Books & Resources</li>
+                <li><a href="/book"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Books</a></li>
+                <li><a href="/book/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+                <li><a href="/blogresource"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Resources</a></li>
+                <li><a href="/blogresource/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+            </ul>
+
 
 
         </div> <!-- end sidebar -->

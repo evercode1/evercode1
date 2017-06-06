@@ -11,6 +11,8 @@
 |
 */
 
+
+
 // Admin route
 
 Route::get('/admin', 'AdminController@index')->name('admin');
@@ -24,6 +26,11 @@ Route::get('api/book-data', 'ApiController@bookData');
 Route::get('api/category-data', 'ApiController@categoryData');
 Route::get('api/category-list', 'ApiController@categoryList');
 Route::get('api/post-data', 'ApiController@postData');
+Route::get('api/total-books', 'ApiController@totalBooks');
+Route::get('api/total-posts', 'ApiController@totalPosts');
+Route::get('api/total-resources', 'ApiController@totalResources');
+Route::get('api/total-users', 'ApiController@totalUsers');
+
 Route::get('api/user-data', 'ApiController@userData');
 
 

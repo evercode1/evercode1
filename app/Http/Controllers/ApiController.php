@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Queries\ArchivesQuery;
+use App\Queries\FeaturedBookQuery;
 use Illuminate\Http\Request;
 use App\Queries\GridQueries\GridQuery;
 use App\Queries\GridQueries\UserQuery;
@@ -11,10 +12,11 @@ use App\Queries\GridQueries\PostQuery;
 use App\Queries\CategoryListQuery;
 use App\Queries\GridQueries\BookQuery;
 use App\Queries\GridQueries\BlogResourceQuery;
-use App\Category;
+use App\User;
 use App\Post;
-use Carbon\Carbon;
-use DB;
+use App\Book;
+use App\BlogResource;
+
 
 class ApiController extends Controller
 {
@@ -59,10 +61,7 @@ class ApiController extends Controller
     public function featuredBook()
     {
 
-        $book = config('book.promo-book');
-
-        return json_encode($book);
-
+        return FeaturedBookQuery::sendFeaturedBook();
 
     }
 
@@ -70,6 +69,41 @@ class ApiController extends Controller
     {
 
         return GridQuery::sendData($request, new PostQuery);
+
+    }
+
+    public function totalBooks()
+    {
+
+
+        return Book::all()->count();
+
+
+    }
+
+    public function totalPosts()
+    {
+
+
+        return Post::all()->count();
+
+
+    }
+
+    public function totalResources()
+    {
+
+
+        return BlogResource::all()->count();
+
+    }
+
+    public function totalUsers()
+    {
+
+
+        return User::all()->count();
+
 
     }
 

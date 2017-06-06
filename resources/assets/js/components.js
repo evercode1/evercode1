@@ -10,5 +10,9 @@ Vue.component('category-list', require('./components/CategoryList.vue'));
 Vue.component('featured-book', require('./components/FeaturedBook.vue'));
 Vue.component('post-grid', require('./components/PostGrid.vue'));
 Vue.component('search-posts', require('./components/SearchPosts.vue'));
+Vue.component('total-books', require('./components/TotalBooks.vue'));
+Vue.component('total-posts', require('./components/TotalPosts.vue'));
+Vue.component('total-resources', require('./components/TotalResources.vue'));
+Vue.component('total-users', require('./components/TotalUsers.vue'));
 Vue.component('user-grid', require('./components/UserGrid.vue'));
 

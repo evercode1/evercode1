@@ -46,9 +46,7 @@
         </div><!--  end blog-main -->
 
 
-
     </div> <!-- end container -->
-
 
 
 @endsection
@@ -56,5 +54,6 @@
 @section('scripts')
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-
+    <script src="/js/format_brackets.js"></script>
+    
 @endsection

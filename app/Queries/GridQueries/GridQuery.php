@@ -61,9 +61,9 @@ class GridQuery
 
         switch ($query){
 
-            case $query instanceof MarketingImageQuery :
-                $column = 'image_weight';
-                $direction = 'asc';
+            case $query instanceof PostQuery :
+                $column = 'posts.created_at';
+                $direction = 'desc';
                 break;
             default:
                 $column = 'id';
