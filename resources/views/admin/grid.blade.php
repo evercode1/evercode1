@@ -32,18 +32,18 @@
     </div>
 <div class="row">
     <div class="col-xs-6 col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <h2>Books</h2>
+        <p>Use this link to manage your applications's books</p>
+        <p><a class="btn btn-default" href="/book" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
     <div class="col-xs-6 col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <h2>Resources</h2>
+        <p>Use this link to manage your applications's resources</p>
+        <p><a class="btn btn-default" href="/blogresource" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
     <div class="col-xs-6 col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <h2>About</h2>
+        <p>Use this link to manage your applications's about content</p>
+        <p><a class="btn btn-default" href="/content" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
 </div><!--/row-->

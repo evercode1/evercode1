@@ -5,7 +5,7 @@
         <ol class="list-unstyled">
 
             <li v-for="category in categories"><a v-bind:href="'/post-by-category/' + category.id">
-                {{ category.name }} - {{ postsCount(category.posts) }}</a></li>
+                {{ category.name }} - {{ category.posts_count }}</a></li>
 
         </ol>
     </div>
@@ -41,14 +41,9 @@
 
                     this.categories = response.data;
 
+
+
                 });
-
-            },
-
-            postsCount(posts){
-
-                return Object.keys(posts).length;
-
 
             }
 

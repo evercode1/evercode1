@@ -19,18 +19,21 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 // Api routes
 
+Route::get('api/about-data', 'ApiController@aboutData');
 Route::get('api/archives', 'ApiController@archives');
-Route::get('api/featured-book', 'ApiController@featuredBook');
 Route::get('api/blog-resource-data', 'ApiController@blogResourceData');
 Route::get('api/book-data', 'ApiController@bookData');
 Route::get('api/category-data', 'ApiController@categoryData');
 Route::get('api/category-list', 'ApiController@categoryList');
+Route::get('api/content-data', 'ApiController@ContentData');
+Route::get('api/content-list', 'ApiController@ContentList');
+Route::get('api/featured-book', 'ApiController@featuredBook');
 Route::get('api/post-data', 'ApiController@postData');
+Route::get('api/signature-data', 'ApiController@signatureData');
 Route::get('api/total-books', 'ApiController@totalBooks');
 Route::get('api/total-posts', 'ApiController@totalPosts');
 Route::get('api/total-resources', 'ApiController@totalResources');
 Route::get('api/total-users', 'ApiController@totalUsers');
-
 Route::get('api/user-data', 'ApiController@userData');
 
 
@@ -50,9 +53,19 @@ Route::post('category-delete/{category}', 'CategoryController@destroy');
 
 Route::resource('category', 'CategoryController');
 
+// Content Routes
+
+Route::resource('/content', 'ContentController');
+
 // Pages Routes
 
 Route::get('/', 'PagesController@index')->name('pages.index');
+
+Route::get('/about', 'PagesController@about')->name('pages.about');
+
+Route::get('/privacy-policy', 'PagesController@privacy')->name('pages.privacy');
+
+Route::get('/terms-of-service', 'PagesController@terms')->name('pages.terms');
 
 // Password Reset Routes...
 

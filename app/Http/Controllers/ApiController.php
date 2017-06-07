@@ -12,14 +12,25 @@ use App\Queries\GridQueries\PostQuery;
 use App\Queries\CategoryListQuery;
 use App\Queries\GridQueries\BookQuery;
 use App\Queries\GridQueries\BlogResourceQuery;
+use App\Queries\GridQueries\ContentQuery;
+use App\Queries\ContentListQuery;
 use App\User;
 use App\Post;
 use App\Book;
 use App\BlogResource;
+use App\Content;
 
 
 class ApiController extends Controller
 {
+
+    public function aboutData()
+    {
+
+        return Content::where('name', 'About')->first();
+
+
+    }
 
     public function archives()
     {
@@ -58,6 +69,21 @@ class ApiController extends Controller
 
     }
 
+    public function contentData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new ContentQuery);
+
+    }
+
+    public function contentList()
+    {
+
+        return ContentListQuery::sendData();
+
+
+    }
+
     public function featuredBook()
     {
 
@@ -69,6 +95,13 @@ class ApiController extends Controller
     {
 
         return GridQuery::sendData($request, new PostQuery);
+
+    }
+
+    public function signatureData()
+    {
+
+        return Content::where('name', 'Signature')->first();
 
     }
 

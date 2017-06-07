@@ -1,14 +1,12 @@
 <template>
 
-    <div class="sidebar-module sidebar-module-inset">
 
-        <h4>{{ contents.name }}</h4>
 
-        <div v-html="contents.body">
+        <div v-html="signature.body">
 
         </div>
 
-    </div>
+
 
 </template>
 
@@ -25,7 +23,7 @@
         data: function () {
             return {
 
-                contents: [],
+                signature: [],
 
             }
 
@@ -35,9 +33,9 @@
 
             loadData(){
 
-                axios.get('/api/about-data').then( (response) => {
+                axios.get('/api/signature-data').then( (response) => {
 
-                    this.contents = response.data;
+                    this.signature = response.data;
 
                 });
 

@@ -33,7 +33,7 @@
 
                         {!! $post->body !!}
 
-                        @include('layouts.blog-partials.signature')
+                        <signature></signature>
 
                     </div><!-- end blog-post -->
 
@@ -55,5 +55,5 @@
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="/js/format_brackets.js"></script>
-    
+
 @endsection

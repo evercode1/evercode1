@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Book;
+use App\Content;
 use Illuminate\Support\Facades\Redirect;
 
-class BookController extends Controller
+class ContentController extends Controller
 {
     public function __construct()
     {
@@ -25,7 +25,7 @@ class BookController extends Controller
     public function index()
     {
 
-        return view('book.index');
+        return view('content.index');
 
     }
 
@@ -38,7 +38,7 @@ class BookController extends Controller
     public function create()
     {
 
-        return view('book.create');
+        return view('content.create');
 
     }
 
@@ -54,23 +54,34 @@ class BookController extends Controller
 
         $this->validate($request, [
 
-            'title' => 'required|unique:books|string|max:100',
-            'url' => 'required|unique:books|string|max:100',
-            'author' => 'required|string|max:100',
-            'is_featured' => 'required|boolean',
+            'name' => 'required|unique:contents|string|max:100',
+            'body' => 'required|string|max:10000',
+            'is_active' => 'required|boolean',
 
         ]);
 
-        $book = Book::create(['title' => $request->title,
-                              'url'   => $request->url,
-                              'author' => $request->author,
-                              'is_featured' => $request->is_featured
+        $content = Content::create([
+
+            'name' => $request->name,
+            'body' => $request->body,
+            'is_active' => $request->is_active
 
         ]);
 
-        $book->save();
 
-        return Redirect::route('book.index');
+
+        $content->save();
+
+        return Redirect::route('content.index');
+
+    }
+
+
+    public function show(Content $content)
+    {
+
+
+        return view('content.show', compact('content'));
 
     }
 
@@ -82,10 +93,10 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit(Book $book)
+    public function edit(Content $content)
     {
 
-        return view('book.edit', compact('book'));
+        return view('content.edit', compact('content'));
 
     }
 
@@ -97,28 +108,28 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Content $content)
     {
 
 
         $this->validate($request, [
 
-            'title' => 'required|string|max:40|unique:books,title,' .$book->id,
-            'url' => 'required|string|max:100|unique:books,url,' .$book->id,
-            'author' => 'required|string|max:100',
-            'is_featured' => 'required|boolean',
+            'name' => 'required|string|max:100|unique:contents,name,' .$content->id,
+            'body' => 'required|string|max:10000',
+            'is_active' => 'required|boolean',
 
         ]);
 
 
 
-        $book->update(['title' => $request->title,
-                       'url'   => $request->url,
-                       'author' => $request->author,
-                       'is_featured' => $request->is_featured]);
 
 
-        return Redirect::route('book.index');
+        $content->update(['name' => $request->name,
+                          'body'   => $request->body,
+                          'is_active' => $request->is_active]);
+
+
+        return Redirect::route('content.index');
 
     }
 
@@ -131,9 +142,9 @@ class BookController extends Controller
 
     public function destroy($id)
     {
-        Book::destroy($id);
+        Content::destroy($id);
 
-        return Redirect::route('book.index');
+        return Redirect::route('content.index');
 
     }
 }

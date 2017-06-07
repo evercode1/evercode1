@@ -1,14 +1,17 @@
 <template>
 
-    <div class="sidebar-module sidebar-module-inset">
 
-        <h4>{{ contents.name }}</h4>
 
-        <div v-html="contents.body">
+            <ul class="dropdown-menu" style="background-color:white;">
 
-        </div>
+                <li><a href="/content">All</a></li>
+                <li v-for="item in contents"><a v-bind:href="'/content/' + item.id">{{ item.name }}</a></li>
+            </ul>
 
-    </div>
+
+
+
+
 
 </template>
 
@@ -25,7 +28,7 @@
         data: function () {
             return {
 
-                contents: [],
+                contents: {},
 
             }
 
@@ -35,7 +38,7 @@
 
             loadData(){
 
-                axios.get('/api/about-data').then( (response) => {
+                axios.get('/api/content-list').then( (response) => {
 
                     this.contents = response.data;
 
@@ -48,4 +51,3 @@
         }
     }
 </script>
-

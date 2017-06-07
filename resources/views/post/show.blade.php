@@ -19,7 +19,7 @@
 
                 {!! $post->body !!}
 
-                @include('layouts.blog-partials.signature')
+                <signature></signature>
 
             </div><!-- end blog-post -->
 

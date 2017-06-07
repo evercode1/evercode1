@@ -11,6 +11,14 @@
                 <li><a href="/post/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
             </ul>
             <ul class="left-nav-list-group">
+                <li>Content</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span>
+                         Content &nbsp;<span class="caret"></span></a>
+                    <content-list></content-list>
+                </li></ul>
+            <ul class="left-nav-list-group">
                 <li>Categories</li>
                 <li><a href="/category"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Categories</a></li>
                 <li><a href="/category/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>

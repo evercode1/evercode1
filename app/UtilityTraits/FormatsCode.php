@@ -13,7 +13,10 @@ trait FormatsCode
 
     private function formatPostBody($body)
     {
-       // $body = $this->decodeEntities($body);
+
+        // transform double braces to {% %} tokens
+
+        $body = $this->transformBraces($body);
 
         list($code, $endCode) = $this->formatReplacementTags();
 
@@ -28,9 +31,10 @@ trait FormatsCode
     public function formatsEditedCode($body)
     {
 
-        // decode html entities
+        // transform double braces to {% %} tokens
 
-        // $body = $this->decodeEntities($body);
+        $body = $this->transformBraces($body);
+
 
         // create the strings to replace in body
 
@@ -58,9 +62,7 @@ trait FormatsCode
 
         $body = str_replace('<placeholder>', $endCode, $body);
 
-
         return $body;
-
 
     }
 
@@ -69,11 +71,12 @@ trait FormatsCode
      * @return mixed|string
      */
 
-    private function decodeEntities($body)
+    private function transformBraces($body)
     {
-        $body = html_entity_decode($body);
 
-        $body = str_replace('&#39;', '\'', $body);
+        $body = str_replace('{{', '{%', $body);
+
+        $body = str_replace('}}', '%}', $body);
 
         return $body;
     }
@@ -88,6 +91,14 @@ trait FormatsCode
     {
 
         $body = str_replace('<pre data-pbcklang="" data-pbcktabsize="">', $code, $body);
+
+        $body = str_replace('<pre class="php " data-pbcklang="php" data-pbcktabsize="">', $code, $body);
+
+        $body = str_replace('<pre class="html " data-pbcklang="html" data-pbcktabsize="">', $code, $body);
+
+        $body = str_replace('<pre class="css " data-pbcklang="css" data-pbcktabsize="">', $code, $body);
+
+        $body = str_replace('<pre class="javascript " data-pbcklang="javascript" data-pbcktabsize="">', $code, $body);
 
         $body = str_replace('<pre class="html " data-pbcklang="html" data-pbcktabsize="4">', $code, $body);
 
