@@ -5,6 +5,7 @@
   letter-spacing: 1px;
   border-radius: 10px;
   font-family: Georgia;
+  font-weight: normal;
 }
 
 .btn-reply:focus, .btn-reply:active:focus, .btn-reply.active:focus {
@@ -12,18 +13,26 @@
 }
 
 .btn-reply-primary {
-  background: #a38d3a;
-  color: #ffffff;
-}
-
-.btn-reply-warning {
-  background: #4fa336;
+  background: #33a6cc;
   color: #ffffff;
   font-weight: normal;
 }
 
-.btn-reply-primary:hover, .btn-reply-warning:hover, .btn-reply-primary:focus, .btn-reply-primary:active, .btn-reply-primary.active, .open > .dropdown-toggle.btn-reply-primary {
+.btn-reply-warning {
+  background: #b6beb8;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.btn-reply-warning:hover, .btn-reply-primary:focus, .btn-reply-primary:active, .btn-reply-primary.active, .open > .dropdown-toggle.btn-reply-primary {
   background: #33a6cc;
+  font-weight: normal;
+}
+
+.btn-reply-primary:hover, .dropdown-toggle.btn-reply-primary  {
+
+  background: #45a653;
+  font-weight: normal;
 }
 
 .btn-reply-primary:active, .btn-reply-primary.active {

@@ -82,7 +82,7 @@ class ContactController extends Controller
 
         if (Auth::user()->isAdmin()){
 
-            return Redirect::route('contact.index');
+            return Redirect::route('contact.open');
 
         }
 

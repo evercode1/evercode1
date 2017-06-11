@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <a href="/support-messages" v-bind:class="isActive">
+    <a href="/open-contacts" v-bind:class="isActive">
 
         <i class="fa fa-bell mt-18" aria-hidden="true"></i>
 
@@ -37,7 +37,7 @@
 
             loadData(){
 
-                axios.get('/api/alarm-data').then( (response) => {
+                axios.get('/api/alarm-support-data').then( (response) => {
 
                     this.count = response.data;
 

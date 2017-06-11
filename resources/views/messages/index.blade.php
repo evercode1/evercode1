@@ -47,7 +47,7 @@
 
                                     @if($message->read)
 
-                                    <button class="btn-reply btn-reply-primary pull-right"
+                                    <button class="btn-reply btn-reply-warning pull-right"
                                             type="button">
 
                                            &nbsp;&nbsp;&nbsp; read &nbsp;&nbsp;&nbsp;
@@ -56,7 +56,7 @@
 
                                     @else
 
-                                            <button class="btn-reply btn-reply-warning pull-right"
+                                            <button class="btn-reply btn-reply-primary pull-right"
                                                     type="button">
 
                                               new  reply

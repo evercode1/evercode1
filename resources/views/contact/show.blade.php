@@ -47,7 +47,7 @@
                                 <li class="list-group-item-text">
 
 
-                                    {{ $message->message}}
+                                   "{{ $message->message}}"
 
                                 </li>
 
@@ -55,7 +55,7 @@
 
                                          <span class="list-group-item-head">{{ $message->created }} {{ $contact->user->name }} requested:</span>
 
-                                    <li class="list-group-item-text">{{ $message->message}}</li>
+                                    <li class="list-group-item-text">"{{ $message->message}}"</li>
 
                                     @endif
 
@@ -66,7 +66,7 @@
 
                                     <li class="list-group-item-reply">Support replied on {{ $message->replied }}:</li>
 
-                                        <li class="list-group-item-reply">{{ $message->reply }}</li>
+                                        <li class="list-group-item-reply">"{{ $message->reply }}"</li>
 
                                     @else
 

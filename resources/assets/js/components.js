@@ -1,5 +1,6 @@
 Vue.component('about', require('./components/About.vue'));
 Vue.component('alarm-bell', require('./components/AlarmBell.vue'));
+Vue.component('alarm-support', require('./components/AlarmSupport.vue'));
 Vue.component('archives', require('./components/Archives.vue'));
 Vue.component('book-grid', require('./components/BookGrid.vue'));
 Vue.component('blog-resource-grid', require('./components/BlogResourceGrid.vue'));

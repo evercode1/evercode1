@@ -24,6 +24,7 @@ use App\Queries\GridQueries\ContactQuery;
 use App\Queries\GridQueries\ContactTopicQuery;
 use App\BlogResource;
 use App\Content;
+use App\Contact;
 
 
 class ApiController extends Controller
@@ -41,6 +42,16 @@ class ApiController extends Controller
     {
 
         return AlarmQuery::sendData();
+
+
+    }
+
+    public function alarmSupportData()
+    {
+
+        $data = Contact::where('status_id', 1)->count();
+
+        return json_encode($data);
 
 
     }
