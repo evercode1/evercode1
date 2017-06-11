@@ -14,9 +14,13 @@ use App\Queries\GridQueries\BookQuery;
 use App\Queries\GridQueries\BlogResourceQuery;
 use App\Queries\GridQueries\ContentQuery;
 use App\Queries\ContentListQuery;
+use App\Queries\GridQueries\OpenContactQuery;
+use App\Queries\GridQueries\ClosedContactQuery;
 use App\User;
 use App\Post;
 use App\Book;
+use App\Queries\GridQueries\ContactQuery;
+use App\Queries\GridQueries\ContactTopicQuery;
 use App\BlogResource;
 use App\Content;
 
@@ -69,6 +73,28 @@ class ApiController extends Controller
 
     }
 
+    public function closedContactData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new ClosedContactQuery);
+
+    }
+
+    public function contactData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new ContactQuery);
+
+
+    }
+
+    public function contactTopicData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new ContactTopicQuery);
+
+    }
+
     public function contentData(Request $request)
     {
 
@@ -88,6 +114,13 @@ class ApiController extends Controller
     {
 
         return FeaturedBookQuery::sendFeaturedBook();
+
+    }
+
+    public function openContactData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new OpenContactQuery);
 
     }
 

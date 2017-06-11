@@ -33,6 +33,7 @@
                         @endif
 
                         <li><a href="/settings">Settings</a></li>
+                        <li><a href="/support-messages">Support</a></li>
                         <li>
                             <a href="/auth/facebook">
                                 fb Sync </a>

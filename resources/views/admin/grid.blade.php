@@ -42,8 +42,8 @@
         <p><a class="btn btn-default" href="/blogresource" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
     <div class="col-xs-6 col-lg-4">
-        <h2>About</h2>
-        <p>Use this link to manage your applications's about content</p>
+        <h2>Content</h2>
+        <p>Use this link to manage your applications's content</p>
         <p><a class="btn btn-default" href="/content" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
 </div><!--/row-->

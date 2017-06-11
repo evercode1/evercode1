@@ -87,7 +87,7 @@
 
     <!-- post body input -->
 
-    <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
 
         <label class="control-label">Post Body</label>
 

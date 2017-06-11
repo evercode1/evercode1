@@ -62,6 +62,15 @@
 
                                 </a>
 
+                                    <button class="btn btn-danger pull-right mr-10"
+                                            @click="confirmDelete(row.Id)">
+
+                                        Delete
+
+                                    </button>
+
+
+
                             </td>
 
                         </tr>
@@ -169,6 +178,24 @@
 
             pageInRange: function(){
                 return this.go_to_page <= parseInt(this.last_page);
+            },
+
+            confirmDelete: function (id){
+
+                if(confirm("Are you sure you want to delete?")){
+
+                    axios.post('/content-delete/' + id)
+                            .then(response => {
+
+                        gridData.loadData('api/content-data', this);
+
+                })
+
+
+                }
+
+
+
             }
 
         }

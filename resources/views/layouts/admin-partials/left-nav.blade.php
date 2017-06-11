@@ -4,6 +4,18 @@
             <ul class="left-nav-first-list-group">
                 <li>Overview <span class="sr-only">(current)</span></li>
                 <li><a href="/admin"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; Dashboard</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span>
+                        &nbsp; Support &nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="background-color:white;">
+                        <li><a href="/open-contacts"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; Open Contacts</a></li>
+                        <li><a href="/closed-contacts"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; Closed Contacts</a></li>
+                        <li><a href="/contact"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Contacts</a></li>
+                        <li><a href="/contact/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+                        </ul>
+
+                </li>
             </ul>
             <ul class="left-nav-list-group">
                 <li>Posts</li>
@@ -15,13 +27,22 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span>
-                         Content &nbsp;<span class="caret"></span></a>
+                        &nbsp; Content &nbsp;<span class="caret"></span></a>
                     <content-list></content-list>
                 </li></ul>
             <ul class="left-nav-list-group">
                 <li>Categories</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span>
+                         &nbsp; Categories &nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="background-color:white;">
                 <li><a href="/category"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Categories</a></li>
                 <li><a href="/category/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+                        <li><a href="/contact-topic"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Contact Topics</a></li>
+                        <li><a href="/contact-topic/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+                    </ul>
+                        </li>
             </ul>
             <ul class="left-nav-list-group">
                 <li>Users</li>

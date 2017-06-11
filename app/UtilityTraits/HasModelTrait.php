@@ -22,6 +22,14 @@ trait HasModelTrait
                 return 'Inactive';
                 break;
 
+            case $record->status_id == 1:
+
+                return 'open';
+
+            case $record->status_id == 0:
+
+                return 'closed';
+
             default:
 
                 return 'Inactive';

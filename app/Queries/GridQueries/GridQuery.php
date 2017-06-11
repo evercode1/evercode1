@@ -65,6 +65,7 @@ class GridQuery
                 $column = 'posts.created_at';
                 $direction = 'desc';
                 break;
+
             default:
                 $column = 'id';
                 $direction = 'asc';

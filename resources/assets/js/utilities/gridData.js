@@ -1,3 +1,4 @@
+
 var dataHelper = {
 
     getQueryData(request, url, vm){
@@ -129,6 +130,7 @@ var dataHelper = {
                 vm.setPageNumbers();
 
             }.bind(vm));
+
             
         }
 

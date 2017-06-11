@@ -35,7 +35,6 @@
 
         <textarea name="body"
                   class="form-control"
-                  name="body"
                   rows="20"
                   value="{{ old('body') }}"></textarea>
 
