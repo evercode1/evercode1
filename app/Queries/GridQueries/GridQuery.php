@@ -65,7 +65,10 @@ class GridQuery
                 $column = 'posts.created_at';
                 $direction = 'desc';
                 break;
-
+            case $query instanceof ContactQuery :
+                $column = 'id';
+                $direction = 'desc';
+                break;
             default:
                 $column = 'id';
                 $direction = 'asc';

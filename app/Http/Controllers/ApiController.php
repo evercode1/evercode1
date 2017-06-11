@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Queries\AlarmQuery;
 use App\Queries\ArchivesQuery;
 use App\Queries\FeaturedBookQuery;
 use Illuminate\Http\Request;
@@ -32,6 +33,14 @@ class ApiController extends Controller
     {
 
         return Content::where('name', 'About')->first();
+
+
+    }
+
+    public function alarmData()
+    {
+
+        return AlarmQuery::sendData();
 
 
     }

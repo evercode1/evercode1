@@ -1,0 +1,32 @@
+.btn-reply {
+  padding: 5px;
+  border: 0 none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  font-family: Georgia;
+}
+
+.btn-reply:focus, .btn-reply:active:focus, .btn-reply.active:focus {
+  outline: 0 none;
+}
+
+.btn-reply-primary {
+  background: #a38d3a;
+  color: #ffffff;
+}
+
+.btn-reply-warning {
+  background: #4fa336;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.btn-reply-primary:hover, .btn-reply-warning:hover, .btn-reply-primary:focus, .btn-reply-primary:active, .btn-reply-primary.active, .open > .dropdown-toggle.btn-reply-primary {
+  background: #33a6cc;
+}
+
+.btn-reply-primary:active, .btn-reply-primary.active {
+  background: #a38d3a;
+  box-shadow: none;
+}

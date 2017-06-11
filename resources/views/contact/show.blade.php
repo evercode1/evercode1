@@ -17,9 +17,9 @@
 
                 <p class="blog-post-meta">{{ $contact->created_at }} by <a href="#">{{ $contact->user->name }}</a></p>
 
-                <a href="#">{{ $contact->user->name }}</a> said:
+                <span class="list-group-item-head">{{ $contact->user->name }} said:</span>
 
-                <p class="mt-10">{{ $contact->message }}</p>
+                <p class="list-group-item-text">{{ $contact->message }}</p>
 
                 <div class="mt-20">
 
@@ -40,26 +40,39 @@
 
                                 @foreach($messages as $message)
 
-                                <li class="list-group-item">
+                                    @if( ! $message->reply)
 
-                                    {{ $message->created }}
+                                        <span class="list-group-item-head">{{ $message->created }} {{ $contact->user->name }} requested:</span>
 
-                                    -
+                                <li class="list-group-item-text">
+
 
                                     {{ $message->message}}
 
                                 </li>
 
+                                        @else
+
+                                         <span class="list-group-item-head">{{ $message->created }} {{ $contact->user->name }} requested:</span>
+
+                                    <li class="list-group-item-text">{{ $message->message}}</li>
+
+                                    @endif
+
+
+
 
                                 @if($message->reply)
 
-                                    <li class="list-group-item">{{ $message->replied }} - Support replied:</li>
+                                    <li class="list-group-item-reply">Support replied on {{ $message->replied }}:</li>
 
-                                        <li class="list-group-item">{{ $message->reply }}</li>
+                                        <li class="list-group-item-reply">{{ $message->reply }}</li>
 
                                     @else
 
-                                        <li class="list-group-item">No Reply From Support yet.</li>
+                                        <li class="list-group-item-reply">
+                                            <a href="/contact/{{ $message->id }}">No Reply From Support yet.</a>
+                                        </li>
 
 
                                     @endif

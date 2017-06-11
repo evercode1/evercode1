@@ -20,6 +20,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 // Api routes
 
 Route::get('api/about-data', 'ApiController@aboutData');
+Route::get('api/alarm-data', 'ApiController@alarmData');
 Route::get('api/archives', 'ApiController@archives');
 Route::get('api/blog-resource-data', 'ApiController@blogResourceData');
 Route::get('api/book-data', 'ApiController@bookData');

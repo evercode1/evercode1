@@ -44,7 +44,7 @@
                                 <a href="/support-messages-show/{{ $message->id }}">
 
                                 @if ($message->reply )
-                                    <button class="btn btn-{{ $message->read ? 'warning' : 'success' }} pull-right"
+                                    <button class="btn-reply btn-{{ $message->read ? 'reply-primary' : 'reply-warning' }} pull-right"
                                             type="button">
 
                                             replied
