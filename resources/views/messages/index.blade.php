@@ -44,14 +44,28 @@
                                 <a href="/support-messages-show/{{ $message->id }}">
 
                                 @if ($message->reply )
-                                    <button class="btn-reply btn-{{ $message->read ? 'reply-primary' : 'reply-warning' }} pull-right"
+
+                                    @if($message->read)
+
+                                    <button class="btn-reply btn-reply-primary pull-right"
                                             type="button">
 
-                                            replied
+                                           &nbsp;&nbsp;&nbsp; read &nbsp;&nbsp;&nbsp;
 
                                     </button>
 
+                                    @else
+
+                                            <button class="btn-reply btn-reply-warning pull-right"
+                                                    type="button">
+
+                                              new  reply
+
+                                            </button>
+
                                     @endif
+
+                                @endif
 
                                 </a>
 
