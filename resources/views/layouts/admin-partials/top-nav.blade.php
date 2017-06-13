@@ -47,13 +47,9 @@
             </li>
             <li><img class="circ" src="{{ Gravatar::get(Auth::user()->email)  }}"></li>
         </ul>
-        <search-posts inline-template>
 
-        <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-        </form>
+        @include('layouts.blog-partials.search')
 
-        </search-posts>
     </div>
 
 

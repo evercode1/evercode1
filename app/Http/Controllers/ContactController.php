@@ -8,7 +8,7 @@ use App\Contact;
 use App\ContactTopic;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use DB;
+use App\Queries\ContactShowQuery;
 
 class ContactController extends Controller
 {
@@ -67,7 +67,7 @@ class ContactController extends Controller
         $this->validate($request, [
 
             'contact_topic_id' => 'required|isValidTopic',
-            'message' => 'required|string|max:1000|min:10',
+            'message' => 'required|string|max:4000|min:10',
 
 
 
@@ -75,7 +75,6 @@ class ContactController extends Controller
 
         $contact = Contact::create(['contact_topic_id' => $request->contact_topic_id,
                                     'message' => $request->message,
-                                    'is_read' => 0,
                                      'user_id' => Auth::id()]);
 
         $contact->save();
@@ -105,27 +104,8 @@ class ContactController extends Controller
 
             if ( Auth::user()->isAdmin() ){
 
-                $messages = DB::table('contacts')
-                    ->select('contacts.id as id',
-                        'contacts.message as message',
-                        'replies.reply as reply',
-                        'replies.is_read as read',
-                        DB::raw('DATE_FORMAT(contacts.created_at,
-                                    "%m-%d-%Y") as created'),
-                        DB::raw('DATE_FORMAT(replies.created_at,
-                                     "%m-%d-%Y") as replied'))
-                    ->leftJoin('replies', 'contact_id', '=', 'contacts.id')
-                    ->where('contacts.user_id', $id)
-                    ->orderBy('contacts.created_at', 'desc')
-                    ->get();
 
-
-
-                $oldMessages = Contact::latest()->where('user_id', $contact->user_id)
-                                            ->where('status_id', 0)
-                                            ->get();
-
-
+                list($oldMessages, $messages) = ContactShowQuery::sendData($id, $contact->user_id);
 
 
                 return view('contact.show', compact('contact', 'oldMessages', 'messages'));

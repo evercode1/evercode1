@@ -17,8 +17,7 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('contact_topic_id');
-            $table->string('message', 1000);
-            $table->boolean('is_read')->default(0);
+            $table->string('message', 4000);
             $table->integer('status_id')->default(1);
             $table->timestamps();
         });

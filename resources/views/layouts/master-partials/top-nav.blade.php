@@ -65,10 +65,21 @@
 
             @endif
         </ul>
-        <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-        </form>
+
+        @include('layouts.blog-partials.search')
+
     </div>
 
 
 </nav>
+
+@section('scripts')
+
+<script>
+
+
+</script>
+
+
+
+    @endsection

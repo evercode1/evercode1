@@ -131,6 +131,10 @@ Route::post('register', 'Auth\AuthController@register');
 
 Route::resource('reply', 'ReplyController');
 
+// Search Route
+
+Route::post('/search', 'SearchController@index');
+
 // Settings routes
 
 Route::get('settings', 'SettingsController@edit');

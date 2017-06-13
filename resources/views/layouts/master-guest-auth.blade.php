@@ -20,6 +20,7 @@
 
     @include('layouts.master-partials.top-nav')
 
+
     <div class="container">
 
         @yield('blog-header')

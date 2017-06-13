@@ -1,0 +1,72 @@
+.suggestionBox {
+  display:none;
+  background-color:white;
+  color: #3b3835;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top: 0;
+  float: left;
+  left: 0;
+  list-style: none;
+  margin: 20px;
+  padding: 8px;
+  position: absolute;
+  top: 31px;
+  width: 180px;
+  z-index: 1000;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.suggestionBox:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+  position: absolute;
+  top: -7px;
+  left: 9px;
+}
+
+.searchForm:nth-child(2){
+  background-color:#fff;
+}
+
+.searchForm:nth-child(2) .suggestionBox{
+  background:skyblue;
+  color:white;
+}
+
+.searchForm:nth-child(2) .suggestionBox::before {
+  border-bottom: 7px solid skyblue;
+}
+
+.searchForm:nth-child(3){
+  background-color:gray;
+}
+
+.searchForm:nth-child(3) .suggestionBox{
+  background:beige;
+  color:black;
+}
+
+.searchForm:nth-child(3) .suggestionBox::before {
+  border-bottom: 7px solid beige;
+}
+
+.searchForm:nth-child(4){
+  background-color:#333;
+}
+
+.searchForm:nth-child(4) .suggestionBox{
+  background:#859ce6;
+  color:white;
+}
+
+.searchForm:nth-child(4) .suggestionBox::before {
+  border-bottom: 7px solid #859ce6;
+}

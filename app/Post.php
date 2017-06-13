@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Post extends Model
 {
@@ -17,6 +18,7 @@ class Post extends Model
      *
      * @var array
      */
+
     protected $dates = [
                          'created_at',
                          'updated_at',
@@ -118,6 +120,13 @@ class Post extends Model
     }
 
     public function category()
+    {
+
+        return $this->belongsTo('App\Category');
+
+    }
+
+    public function categories()
     {
 
         return $this->belongsTo('App\Category');

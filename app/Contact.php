@@ -10,7 +10,6 @@ class Contact extends Model
     protected $fillable = ['contact_topic_id',
                            'user_id',
                            'message',
-                           'is_read',
                            'status_id'];
 
     public function summary($message)

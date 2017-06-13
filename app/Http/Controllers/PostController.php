@@ -54,7 +54,7 @@ class PostController extends Controller
 
         $this->validate($request, [
             'title' => 'required|string|unique:posts|max:100',
-            'body' => 'required|string|max:4000',
+            'body' => 'required|string|max:10000',
             'category_id' => 'required|isValidCategory',
             'is_published' => 'required|boolean'
 
@@ -144,7 +144,7 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:100|unique:posts,title,' .$post->id,
-            'body' => 'required|string|max:4000',
+            'body' => 'required|string|max:10000',
             'category_id' => 'required|isValidCategory',
             'is_published' => 'required|boolean'
 

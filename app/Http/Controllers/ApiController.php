@@ -151,6 +151,14 @@ class ApiController extends Controller
 
     }
 
+    public function searchData(Request $request)
+    {
+
+        return Post::search($request->get('q'))->with('categories')->get();
+
+
+    }
+
     public function signatureData()
     {
 

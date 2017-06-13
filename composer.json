@@ -9,7 +9,8 @@
         "creativeorange/gravatar": "~1.0",
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "nicolaslopezj/searchable": "^1.9"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
