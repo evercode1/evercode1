@@ -18,6 +18,7 @@ Vue.component('featured-book', require('./components/FeaturedBook.vue'));
 Vue.component('open-contact-grid', require('./components/OpenContactGrid.vue'));
 Vue.component('post-grid', require('./components/PostGrid.vue'));
 Vue.component('signature', require('./components/Signature.vue'));
+Vue.component('site-search', require('./components/SiteSearch.vue'));
 Vue.component('total-books', require('./components/TotalBooks.vue'));
 Vue.component('total-posts', require('./components/TotalPosts.vue'));
 Vue.component('total-resources', require('./components/TotalResources.vue'));

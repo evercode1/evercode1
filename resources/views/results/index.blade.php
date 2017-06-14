@@ -12,15 +12,15 @@
 
             <div class="col-md-8 mt-25">
 
-                <p class="blog-post-meta">Search results for {{ $keyword }}:</p>
+                <p class="blog-post-meta">Showing {{ $count }} results for {{ $keyword }}:</p>
 
                 @forelse($posts as $post)
 
                 <div class="blog-post">
 
-                    <h2 class="blog-post-title"><a href="/post/{{ $post->Id }}">{{ $post->Title }}</a></h2>
+                    <h1 class="blog-post-title"><a href="/post/{{ $post->Id }}">{{ $post->Title }}</a></h1>
 
-                    <p class="blog-post-meta">{{ $post->Published }} by <a href="#">{{ $post->Author }}</a></p>
+                    <p class="blog-post-meta">{{ $post->Published }} by <a href="/about">{{ $post->Author }}</a></p>
 
                     <a href="/post/{{ $post->Id }}">{!! \App\Utilities\Summarize::longSummary($post->Body) !!}</a>
 

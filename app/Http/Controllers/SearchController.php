@@ -15,7 +15,9 @@ class SearchController extends Controller
 
         $posts = SearchQuery::sendData($keyword);
 
-        return view('results.index', compact('posts', 'keyword'));
+        $count = count($posts);
+
+        return view('results.index', compact('posts', 'keyword', 'count'));
 
 
     }

@@ -27,13 +27,23 @@
 
                     <div class="blog-post">
 
-                        <h2 class="blog-post-title">{{ $post->title }}</h2>
+                        <a href="/post/{{ $post->id }}"><h1 class="post-title">{{ $post->title }}</h1></a>
 
                         <p class="blog-post-meta">{{ $post->published_at }} by <a href="#">{{ $post->user->name }}</a></p>
 
                         {!! $post->body !!}
 
                         <signature></signature>
+
+                        <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
+
+                            <button class="btn btn-primary">
+
+                                Show Comments
+
+                            </button>
+
+                        </a>
 
                     </div><!-- end blog-post -->
 

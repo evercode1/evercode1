@@ -11,6 +11,14 @@
 </div>
 
 <div class="row">
+
+    <div class="ml-15" id="chart_div"></div>
+
+
+
+</div>
+
+<div class="row">
     <div class="col-xs-6 col-lg-4">
         <h2>Users</h2>
         <p>Use this link to manage your applications's users</p>

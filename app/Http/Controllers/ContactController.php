@@ -105,7 +105,8 @@ class ContactController extends Controller
             if ( Auth::user()->isAdmin() ){
 
 
-                list($oldMessages, $messages) = ContactShowQuery::sendData($id, $contact->user_id);
+                list($messages, $oldMessages) = ContactShowQuery::sendData($id, $contact->user_id);
+
 
 
                 return view('contact.show', compact('contact', 'oldMessages', 'messages'));

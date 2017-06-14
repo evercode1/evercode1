@@ -19,6 +19,12 @@
 
                 {!! $content->body !!}
 
+                @if ($content->name == 'About')
+
+                 <signature></signature>
+
+                @endif
+
             </div><!-- end blog-post -->
 
         </div> <!-- end column -->

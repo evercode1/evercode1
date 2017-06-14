@@ -22,13 +22,24 @@
 
                 <div class="blog-post">
 
-                    <h2 class="blog-post-title">{{ $post->title }}</h2>
+                    <a href="/post/{{ $post->id }}"><h1 class="post-title">{{ $post->title }}</h1></a>
 
-                    <p class="blog-post-meta">{{ $post->published_at }} by <a href="#">{{ $post->user->name }}</a></p>
+                    <p class="blog-post-meta">{{ $post->published_at }} by <a href="/about">{{ $post->user->name }}</a></p>
 
                     {!! $post->body !!}
 
                     <signature></signature>
+
+
+                    <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
+
+                        <button class="btn btn-primary">
+
+                            Show Comments
+
+                        </button>
+
+                    </a>
 
                 </div><!-- end blog-post -->
 
@@ -52,5 +63,10 @@
 
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="/js/format_brackets.js"></script>
+
+
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
 
 @endsection

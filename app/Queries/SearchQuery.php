@@ -31,7 +31,7 @@ class SearchQuery
                 ->orWhere('posts.body', 'like', '%' . $keyword . '%')
                 ->orWhere('categories.name', 'like', '%' . $keyword . '%')
                 ->orderBy('id', 'asc')
-                ->paginate(5);
+                ->SimplePaginate(5);
 
         return $rows;
 
