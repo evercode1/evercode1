@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ChartHelpers\PostPieChartBuilder;
 use App\Queries\AlarmQuery;
 use App\Queries\ArchivesQuery;
 use App\Queries\FeaturedBookQuery;
+use App\Queries\PostCountQuery;
 use Illuminate\Http\Request;
 use App\Queries\GridQueries\GridQuery;
 use App\Queries\GridQueries\UserQuery;
@@ -25,6 +27,8 @@ use App\Queries\GridQueries\ContactTopicQuery;
 use App\BlogResource;
 use App\Content;
 use App\Contact;
+use App\ChartHelpers\BuildsCharts;
+
 
 
 class ApiController extends Controller
@@ -141,6 +145,25 @@ class ApiController extends Controller
     {
 
         return GridQuery::sendData($request, new OpenContactQuery);
+
+    }
+
+    public function pieChartData()
+    {
+
+        $data = new PostPieChartBuilder;
+
+
+        return $data->getData();
+
+
+    }
+
+    public function postChartData(Request $request, BuildsCharts $chart)
+    {
+
+        return $chart->buildChart($request, ['posts']);
+
 
     }
 

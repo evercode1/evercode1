@@ -16,6 +16,8 @@ Vue.component('category-grid', require('./components/CategoryGrid.vue'));
 Vue.component('category-list', require('./components/CategoryList.vue'));
 Vue.component('featured-book', require('./components/FeaturedBook.vue'));
 Vue.component('open-contact-grid', require('./components/OpenContactGrid.vue'));
+Vue.component('post-chart', require('./components/PostChart.vue'));
+Vue.component('post-pie-chart', require('./components/PostPieChart.vue'));
 Vue.component('post-grid', require('./components/PostGrid.vue'));
 Vue.component('signature', require('./components/Signature.vue'));
 Vue.component('site-search', require('./components/SiteSearch.vue'));

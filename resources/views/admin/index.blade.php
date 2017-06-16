@@ -1,10 +1,5 @@
 @extends('layouts.master-admin')
 
-@section('meta')
-
-    @include('layouts.admin-partials.pie-chart')
-
-@endsection
 
 @section('title')
 
